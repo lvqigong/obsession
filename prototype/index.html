@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bear · One Wish Willow | First-person horror slice</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main id="game-shell" aria-label="Bear 第一人称恐怖切片">
+    <canvas id="game-canvas"></canvas>
+    <div id="vignette"></div>
+    <div id="grain"></div>
+    <div id="flash-overlay"></div>
+
+    <section id="title-screen" class="screen-panel">
+      <p class="eyebrow">BEAR · FIRST-PERSON HORROR SLICE</p>
+      <h1>ONE WISH</h1>
+      <p class="title-sub">卧室里的愿望盒，门廊外的车灯。</p>
+      <button id="start-button" class="primary-button">进入卧室</button>
+      <p class="legal-note">原创低模轮廓、原创对白与合成氛围音。音乐栏保留授权占位，不嵌入商业录音。</p>
+    </section>
+
+    <section id="hud" class="hud" aria-live="polite">
+      <div class="hud-top">
+        <div>
+          <p id="chapter-label" class="chapter-label">01 / 卧室 · BEAR</p>
+          <p id="objective" class="objective">检查床边的 One Wish Willow 盒，寻找线索。</p>
+        </div>
+        <div class="status-dot" id="status-dot" title="手电状态"></div>
+      </div>
+      <div id="subtitle" class="subtitle"></div>
+      <div id="hint" class="hint">WASD 移动 · 鼠标观察/拖动 · Shift 快走 · F 手电 · E 互动</div>
+      <div id="state-strip" class="state-strip"><span id="item-status">双手：空</span><span id="clue-status">线索 0 / 3 · 卧室门关 · 前门关</span></div>
+      <div id="chapter-jump" class="chapter-jump" aria-label="快速检查章节">
+        <span>快速检查</span><button data-jump="0">卧室</button><button data-jump="1">走廊</button><button data-jump="2">门廊</button><button data-jump="3">回房</button><button data-jump="4">终幕</button>
+      </div>
+    </section>
+
+    <div id="reticle" class="reticle" aria-hidden="true"><span></span></div>
+
+    <section id="ending-screen" class="screen-panel ending-panel is-hidden">
+      <p class="eyebrow">ONE WISH WILLOW · END</p>
+      <h2>愿望解除</h2>
+      <p id="ending-copy">愿望解除后，妮基恢复意识。地上的人影已经失去回应，只剩阴影与布料轮廓。她看见了，崩溃尖叫。</p>
+      <p class="music-credit">Music slot: <strong>Forever (licensed placeholder)</strong><br />Current: original Love is in the Air Pt.2-inspired drone</p>
+      <button id="restart-button" class="primary-button">重新进入</button>
+    </section>
+    <button id="skip-finale" class="primary-button skip-finale is-hidden">跳过演出</button>
+    <section id="inspect-panel" class="inspect-panel is-hidden" aria-live="polite">
+      <p class="eyebrow">INSPECTION</p>
+      <h2 id="inspect-title">检查物品</h2>
+      <p id="inspect-text"></p>
+      <button id="close-inspect" class="primary-button">关闭 · E / I</button>
+    </section>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
